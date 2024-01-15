@@ -6,8 +6,9 @@ function solution(name, yearning, photo) {
        
    return photo.map((k,idx)=>{
         let sum = 0;
-       k.forEach((y,i)=>{    
-           Object.keys(match).includes(y) ? sum = sum+match[y]  : sum = sum+0 })   
+       k.forEach((y,i)=>{   
+           console.log(match.y)
+           Object.keys(match).includes(y) ? sum += match[y]  : sum += 0 })   
          return sum
    })
     
