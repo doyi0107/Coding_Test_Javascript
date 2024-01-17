@@ -1,27 +1,24 @@
 function solution(keymap, targets) {
-    let result = [], match = {};
+    let match = {};
     keymap.forEach((x,idx) => {
             x.split('').forEach((k,index) =>{
-                if(match[k] === undefined){
-                     match[k] = index+1
-                }else{
-                     match[k] = Math.min(match[k],index+1)
-                }          
+               match[k] =  (match[k] < index+1 ?  match[k] : index+1  ) 
+                      
             })
         }) 
     
-    const answer =  targets.map((x,idx) =>{
+  let result = targets.map((x,idx) =>{
         let count = 0;
-        let isSearch = true
+      let empty = 0;
         x.split('').forEach((k,index) => {
             if(match[k] === undefined ){
-                     isSearch = false
+                   empty = -1
             }else{
                  count += match[k]
             }
             
         })
-            return isSearch ? count : -1
+            return empty == -1 ? empty : count
     })
-     return answer
+     return result
 }     
