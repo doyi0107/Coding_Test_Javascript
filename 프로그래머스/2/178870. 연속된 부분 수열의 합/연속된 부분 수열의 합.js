@@ -1,29 +1,30 @@
 function solution(sequence, k) {
-    var answer = [];
-    let prefix = [0]       // sequence의 합을 나타낸 배열
-    let maxL  = Infinity   // 정답으로 나온 부분수열의 길이를 나타내는 변수 
-    sequence.forEach((num,i)=>{
-        prefix.push(num+prefix[i])
+    //누적합 스킬 
+    let perfix = [0],sum = 0,left = 0,right = 0,result = [];
+    let maxL = Infinity
+    sequence.forEach((x,i) => {
+       perfix.push(x + perfix[i])
     })
+    
+    while(left <= right){
+         sum = perfix[right] - perfix[left] 
+        
 
-    let left = 0
-    let right = 0
-
-
-    while(left<=right){
-        let sum = prefix[right] - prefix[left]  // sequence[left] 부터 sequence[right-1]까지의 수열의 합.
-        if(sum === k) {
-            // 정답수열을 찾았을때 수열의 길이를 체크하고 가장 작은길이의 수열로 변환. 
-            let nowL = right-1 - left 
-            if(maxL > nowL){
-                answer = [left,right-1]
-                maxL = nowL
+        if(sum === k){
+          let answerL = right - 1 - left
+            if(maxL > answerL){
+                 result = [left, right - 1]
+                 maxL = answerL
             }
-        }
-        if(sum<k){
-            right++
-        }else left++
-    }
 
-    return answer;
+        }
+        
+        if(sum < k){
+            right++;
+        }else{
+            left++;
+        }
+    }
+    
+    return result
 }
