@@ -1,23 +1,25 @@
 function solution(x, y, n) {
-   let result = -1;
-    const stack = [{num:y , tried:0}]
-    
-    while(stack.length !== 0){
-        const {num,tried} = stack.shift();
-        
-        if(num === x){
-            return result = tried
+    let count = 0
+    let test = [x]
+
+    if (x === y) return 0
+
+    while (true) {
+        count++
+
+        const set = new Set()
+        test.forEach(item => {
+            if (item + n <= y) set.add(item + n)
+            if (item * 2 <= y) set.add(item * 2)
+            if (item * 3 <= y) set.add(item * 3)
+        })
+
+        if (set.size === 0) return -1
+
+        if (set.has(y)) {
+            return count
         }
-        if(num%2 === 0){
-            stack.push({num:num/2 , tried:tried+1})
-            }
-            if(num%3 === 0){
-            stack.push({num:num/3 , tried:tried+1})
-            }
-            if(num-n >= x){
-            stack.push({num:num-n , tried:tried+1})
-            }
+
+        test = set
     }
-    
-    return result
 }
