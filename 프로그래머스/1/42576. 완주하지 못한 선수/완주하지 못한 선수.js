@@ -23,5 +23,5 @@ function solution(participant, completion) {
         }
     }
     
-    return answer
+    return   answer
 }
