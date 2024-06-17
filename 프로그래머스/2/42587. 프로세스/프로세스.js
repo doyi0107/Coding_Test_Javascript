@@ -1,20 +1,20 @@
 function solution(priorities, location) {
-    var answer = 0;
-    const pri = priorities.map((a,i) => [a,i]);
-    console.log('pri',pri)
-    const arr = [];
-
-
-    for(let i = 0; i < pri.length ;){
-        const temp = pri.shift();
-        if( pri.some((a)=> temp[0]< a[0])) pri.push(temp);
-        else {
-            arr.push(temp);
-            console.log(' arr', arr) 
+    let answer = 0;
+    let twoarr = priorities.map((x,i) =>  [x,i])
+    let arr = []
+    
+    console.log(twoarr)
+    for(let i=0; i<priorities.length; i++){
+        let temp = twoarr.shift();
+        console.log( temp)
+        if(twoarr.some((x)=> temp[0] < x[0])){
+             twoarr.push(temp)
+        }else{
+            arr.push(temp)
             if(arr[answer][1] == location) break;
             else answer ++;
         }
     }
-
+    
     return answer+1;
 }
