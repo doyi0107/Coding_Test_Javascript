@@ -1,12 +1,8 @@
 function solution(numbers) {
-    // numbers 배열의 각 숫자를 문자열로 변환
-    let strNumbers = numbers.map(String);
+   let numstring = numbers.map(String);
+   let arr = numstring.sort((a,b) => (b+a) - (a+b)).join('')
     
-    // 문자열 배열을 정렬
-    strNumbers.sort((a, b) => (b + a) - (a + b));
-
-    let answer = strNumbers.join('');
-    return answer[0] === '0' ? '0' : answer;
+    return     arr[0] === '0' ? '0' :  arr
 }
 
 
