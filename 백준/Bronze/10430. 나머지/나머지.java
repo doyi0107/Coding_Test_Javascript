@@ -16,7 +16,7 @@ public class Main {
        sb.append((a + b) % c).append("\n");
        sb.append((a % c + b % c) % c).append("\n");
        sb.append((a * b) % c).append("\n");
-       sb.append((a % c * b % c) % c);
+       sb.append(((a % c) * (b % c)) % c);
       
        System.out.println(sb);
   }
