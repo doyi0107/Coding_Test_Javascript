@@ -5,28 +5,29 @@ import java.util.*;
 
 public class Main {
   public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int n = Integer.parseInt(br.readLine());
-
-        //DOG단어 배열로 만들기
+       BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+       int n = Integer.parseInt(br.readLine());
+        //첫번째 단어 받기
         String firstWord = br.readLine();
+       //최종 정답
         int result = 0;
 
-        for(int i = 0; i<n-1; i++){
-            String nextWord = br.readLine();
-          // 같은 단어 개수!!
-          int cnt = 0;
-          int[] word = new int[26];
+       for(int i=0; i<n-1; i++){
+         String nextWord = br.readLine();
+         int[] word = new int[26];
+         int cnt = 0;
 
+         //첫번째 문자 카운트
           for(int j=0; j<firstWord.length(); j++){
             word[firstWord.charAt(j) - 'A']++;
           }
 
+         //다음단어 문자 카운트
           for(int k=0; k<nextWord.length(); k++){
-           if( word[nextWord.charAt(k) - 'A'] > 0){
-              cnt++;
-              word[nextWord.charAt(k) - 'A']--;
-           }
+             if(word[nextWord.charAt(k) - 'A'] > 0){
+                 cnt++;
+                 word[nextWord.charAt(k) - 'A']--;
+             }
           }
 
           if(firstWord.length() == nextWord.length() && (firstWord.length() == cnt || firstWord.length() - 1 == cnt)) {
@@ -39,7 +40,7 @@ public class Main {
 
        }
 
-        System.out.println(result);
+       System.out.println(result);
 
   }
 }
