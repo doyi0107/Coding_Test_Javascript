@@ -10,30 +10,27 @@ public class Main {
        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
        int n = Integer.parseInt(br.readLine());
        String[] arr = br.readLine().split(" ");
-       int[] IntArr = new int[n];
+       int[] waitingLine = new int[n];
 
        //String배열 int배열로 변환하기
        for(int i=0; i<n; i++){
-           IntArr[i] = Integer.parseInt(arr[i]);
+         waitingLine[i] = Integer.parseInt(arr[i]);
        }
 
-       Arrays.sort(IntArr);
+       Arrays.sort(waitingLine);
        int sum = 0;
        int[] sumArr = new int[n];
+        // 마지막 총합 구하기
+        int result = 0;
 
        // 각 사람마다 걸리는 시간 배열에 집어 넣기
        for(int i=0; i<n; i++){
-           sum+= IntArr[i];
+           sum+= waitingLine[i];
            sumArr[i] = sum;
+           result += sumArr[i];
        }
 
-       // 마지막 총합 구하기
-       int result = 0;
-       for(int i=0; i<n; i++){
-          result+=sumArr[i];
-       }
-
-    System.out.println(result);
+       System.out.println(result);
 
   }
 }
