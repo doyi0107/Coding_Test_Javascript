@@ -1,11 +1,12 @@
 function solution(n, m, section) {
-    let tried = 0
-    let maxRange = -Infinity
-    section.forEach(range=>{
-        if(maxRange < range){
-            tried++
-            maxRange = range+m-1
-        }
+   let result = 0;
+   let maxRange = -Infinity;
+    section.forEach(x => {
+        if(maxRange < x){
+           result++;
+           maxRange = x+m-1     
+         }
     })
-    return tried
+    
+    return result;
 }
