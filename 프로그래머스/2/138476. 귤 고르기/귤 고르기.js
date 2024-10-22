@@ -1,18 +1,18 @@
 function solution(k, tangerine) {
-    let count = 0,result = 0, object = {}; 
-
-  // 숫자와 배열 안의 숫자 개수 매치하기
-   tangerine.forEach((x,idx) => {
-       object[x] === undefined ? object[x] = 1: object[x]++  
-   })      
+    let map = {},cnt = 0;
     
-    //여기서 2차원 배열로 바뀜
-   let gulnum = Object.entries(object).sort( ([,a] , [,b]) => b - a);
-   
-    gulnum.forEach ((i,index) => {  
-           if(count < k)
-           { count += Number(gulnum[index][1]);  result++; }       
-    })
-
-   return result
-}
+    for(let t of tangerine){
+        map[t] = (map[t] || 0) + 1
+    }
+    
+    let sortedmap = Object.values(map).sort((a,b) => b-a);
+    console.log(sortedmap)
+    
+    for(let count of sortedmap){
+        k -= count;
+        cnt++;
+        if(k<=0) break;
+    }
+    
+    return cnt;
+} 
