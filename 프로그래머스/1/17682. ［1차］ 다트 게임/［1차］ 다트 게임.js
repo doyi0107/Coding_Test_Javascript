@@ -4,6 +4,7 @@ function solution(dartResult) {
     
     for(let i=0; i<dartResult.length; i++){
            
+          // S,D,T 중에 하나일 떄 바로 앞의 인덱스랑 제곱 값 구하기 
           if(alphabet.includes(dartResult[i])){
               let alp;
               dartResult[i] == "S" ? alp = 1  : dartResult[i] == "D" ? alp = 2 : alp = 3;
@@ -15,6 +16,7 @@ function solution(dartResult) {
                       
           }  
         
+        //* 일때 stack의 마지막 2개 인덱스 *2한 값 구해서 다시 넣기 
           if(dartResult[i] == "*"){
               let num = stack.pop()*2;
               if(stack.length > 0){
@@ -22,9 +24,9 @@ function solution(dartResult) {
                   stack.push(num2)
               }
               stack.push(num)
-              console.log(stack)
           }
         
+        //# 일때 stack의 마지막 값 (-1) 곱해서 stack에 넣기 
          if(dartResult[i] == "#"){
              let num = stack.pop()*(-1);
              stack.push(num);
