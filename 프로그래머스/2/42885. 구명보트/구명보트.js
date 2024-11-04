@@ -1,7 +1,7 @@
 function solution(people, limit) {
     let result = 0; 
     people.sort((a,b) => a-b);
-    let stack = []
+    let stack = [];
     
     while(people.length > 0){
         stack.push(people.pop());
@@ -15,5 +15,5 @@ function solution(people, limit) {
         
     }
     
-    return result
+    return result;
 }
