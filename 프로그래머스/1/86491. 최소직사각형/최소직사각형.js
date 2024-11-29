@@ -8,7 +8,6 @@ function solution(sizes) {
            let min = Math.min(sizes[i][0],sizes[i][1]);
            minArr.push(min);
        }
-       console.log(maxArr,minArr)
-       return Math.max(...maxArr)*Math.max(...minArr)
 
+       return Math.max(...maxArr)*Math.max(...minArr)
 }
