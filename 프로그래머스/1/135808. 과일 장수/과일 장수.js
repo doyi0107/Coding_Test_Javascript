@@ -1,7 +1,6 @@
 function solution(k, m, score) {
     let sortedScore = score.sort((a,b) => b-a);
     let count = 0
-    console.log(sortedScore)
     for(let i=(m-1); i<score.length; i+=m){
         count += (sortedScore[i]*m)
     }
