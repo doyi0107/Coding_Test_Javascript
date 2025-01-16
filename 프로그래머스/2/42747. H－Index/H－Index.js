@@ -1,16 +1,15 @@
 function solution(citations) {
-    let result;
-    let sortedCit = [...citations].sort((a,b) => b-a);
+    let answer = 0;
+    citations.sort((a,b) => b-a);
+    let arr = [];
     
-    for(let i = sortedCit[0]; i>=0; i--){  
-        let more = [];
-        let less = [];
-        sortedCit.forEach((x) => x >= i ? more.push(x) : less.push(x))
-        if(more.length >= i &&  less.every((x) => x<= i)){
-            result = i;
+    for(let i=0; i< citations.length; i++){
+         arr.push(citations[i]);
+         if(citations[i] < arr.length){ 
             break;
-        }
+         }
+         answer++;
     }
-
-    return result;
+    
+    return answer;
 }
