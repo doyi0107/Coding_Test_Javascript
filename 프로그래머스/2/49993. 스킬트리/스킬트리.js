@@ -1,5 +1,4 @@
 function solution(skill, skill_trees) {
-    let answer = 0;
     let object = {};
     skill.split("").forEach((x) => object[x] =1);
     console.log(object)
