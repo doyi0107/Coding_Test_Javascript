@@ -1,19 +1,19 @@
 function solution(numbers) {
     let result = 0; 
     let num = [];
-    let n = numbers.length
-    
-    function generateNumbers(current, remaining) {
-        if (current.length > 0) {
-            num.push(Number(current)); // 생성된 숫자를 Set에 추가
-        }
 
-        for (let i = 0; i < remaining.length; i++) {
-            generateNumbers(current + remaining[i], remaining.slice(0, i) + remaining.slice(i + 1));
+    const totalMix = (current, remain) => {
+        if(current.length > 0){
+            num.push(Number(current))
+        }
+        
+        for(let i=0; i<remain.length; i++){
+            totalMix(current + remain[i], remain.slice(0,i) + remain.slice(i+1))
         }
     }
-
-    generateNumbers("", numbers); // 모든 가능한 조합 생성
+    
+    totalMix("",numbers)
+    
     let numCopy = [...new Set(num)];
     
    
