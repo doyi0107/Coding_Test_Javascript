@@ -29,6 +29,7 @@ function solution(n, wires) {
         let one = dfs(x,y);
         count = 0; 
         let two = dfs(y,x);
+        console.log([x,y],one,two)
          visited.fill(false);
         result = Math.min(Math.abs(one-two), result);
     }
