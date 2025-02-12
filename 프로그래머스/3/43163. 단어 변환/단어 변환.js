@@ -3,11 +3,9 @@ function solution(begin, target, words) {
     let visited = Array(words.length).fill(false)
     
     const changeWord = (word,node) => {
-          let index;
           let count = 0; 
           for(let i=0; i<word.length; i++){
               if(node[i] !== word[i]){
-                  index = i; 
                   count++;
               }
           }
