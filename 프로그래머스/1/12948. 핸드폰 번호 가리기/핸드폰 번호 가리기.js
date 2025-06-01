@@ -1,3 +1,9 @@
 function solution(phone_number) {
-    return phone_number.split('').map((x,i) => { return i<phone_number.length-4 ?  x.replaceAll(x ,'*') : x }).join('')
+    let result = phone_number.split("");
+    for(let i=0; i<phone_number.length-4; i++){
+        result[i] = "*"
+    }
+        
+    return result.join("")
+  
 }
